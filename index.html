@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Revalia" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>My Online Portfolio</title>
+</head>
+<body>
+	<div class="cd-intro-block">
+		<div class="content-wrapper">
+			<h1>Miguel Victor Tolentino</h1>
+			<a href="#0" class='cd-btn' data-action="show-projects">PRESS START</a>
+		</div>
+	</div> <!-- .cd-intro-block -->
+
+	<div class="cd-projects-wrapper">
+		<ul class="cd-slider">
+			<li>
+				<a href="#0" id="one">
+					<img src="img/card1.jpg" alt="project image">
+					<div class="project-info">
+						<h2>About Me</h2>
+<!--						<p>Lorem ipsum dolor sit amet.</p>-->
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#1" id="two">
+					<img src="img/card1.jpg" alt="project image">
+					<div class="project-info">
+						<h2>Skills</h2>
+<!--						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, dicta.</p>-->
+					</div>
+				</a>
+			</li>
+
+			<li>
+				<a href="#2" id="three">
+					<img src="img/card1.jpg" alt="project image">
+					<div class="project-info">
+						<h2>Contact Me</h2>
+<!--						<p>Lorem ipsum dolor sit amet.</p>-->
+					</div>
+				</a>
+			</li>
+
+			
+		</ul>
+
+	 <!-- .cd-slider-navigation -->
+	</div> <!-- .cd-projects-wrapper -->
+
+	<div class="cd-project-content" id="one-con">
+		<div style="padding-top:5%;">
+			<h2>Miguel Victor Tolentino</h2>
+			<em>San Jose, Calumpit, Bulacan, Philippines</em>
+			<p>
+				 I am looking for a suitable On-the-Job Training where I could practice my knowledge and developed my personality as a career person while utilizing my skills. 
+			</p><br>
+			<hr><br>
+			<h3>PERSONAL INFORMATION</h3>
+			<br>
+			<h4>Age: 18
+			<br>Date of Birth: November 16, 1997
+			<br>Place of Birth: Manila, Philippines
+			<br>Religion: Roman Catholic</h4>
+			
+			<br>
+			<h3>EDUCATIONAL BACKGROUND</h3>
+			<br>
+			<h4>2014 - Present
+			<br>AMA Computer College 
+			<br>Bachelor of Science in Information Technology</h4>
+			<br>
+			<h4>2010 - 2014
+			<br>Colegio de Calumpit Institute 
+			<br>Secondary Education</h4>
+			<br>
+			<h4>2003 – 2010
+			<br>Colegio de Calumpit Institute
+			<br>Primary Education</h4>
+		</div>
+		<a href="#0" class="close cd-img-replace" >Close</a>
+	</div> <!-- .cd-project-content -->
+	
+	<div class="cd-project-content" id="two-con">
+		<div>
+			<h2>My Skills</h2>
+			<br>
+			<em> - Excellent comprehension and retention.</em>
+			<em> - Capable of editing pictures, files and presentation using different Application.</em>
+			<em> - Proficient in C# Programming Language and ASP.net.</em>
+			<em> - Knowledgeable HTML and CSS, which is often used in web development and design.</em>
+		
+
+		</div>
+		<a href="#0" class="close cd-img-replace">Close</a>
+	</div> <!-- .cd-project-content -->
+	
+	<div class="cd-project-content" id="three-con">
+		<div>
+			<h2>Contact Me</h2>
+			<em>Mobile: 09994767884 <br>Email: spaceflow3r16@gmail.com</em>
+	
+			<form class="cf" id="someForm">
+  <div class="half left cf">
+    <input type="text"  placeholder="Name" id="name">
+    <input type="email"  placeholder="Email address" id="email">
+ 
+  </div>
+  <div class="half right cf">
+    <textarea name="message" type="text" id="message" placeholder="Message"></textarea>
+  </div>  
+  <input type="submit" value="Submit" id="input-submit">
+</form>
+		</div>
+		<a href="#0" class="close cd-img-replace">Close</a>
+	</div> <!-- .cd-project-content -->
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script>
+		$(document).ready(function() {
+			    $('#someForm').on('submit', function(e) {
+				e.preventDefault();
+
+				//get the name field value
+				var name = $('#name').val();
+				//get the name field value
+				var email = $('#email').val();
+				//get the comments
+				var message = $('#message').val();
+
+				//pretend we don't need validation
+
+				//send to formspree
+				$.ajax({
+				    url:'https://formspree.io/spaceflow3r16@gmail.com',
+				    method:'POST',
+				    data:{
+					name:name,
+					_replyto:email,
+					 email:email,
+					comments:message,
+					_subject:'My Form Submission',
+				    },
+				    dataType:"json",
+				    success:function() {
+					console.log('success'); 
+					alert('Thank you for sending an email. I\'ll be contacting you soon.');
+					$('#name').val("");
+					    $('#email').val("");
+					    $('#message').val("");
+					  
+				    }   
+				});     
+
+			    });
+			}); 
+	</script>	
+</body>
+</html>
